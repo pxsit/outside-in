@@ -29,7 +29,7 @@
     "advisor": "ธีระพล พฤฑฒิกุล",
     "license": "GPL-3.0-only",
     "dependencies": {
-        "gsap": "^3.14.2"
+        "gsap": "^3.15.0"
     },
     "repository": {
         "type": "git",
@@ -43,14 +43,14 @@
         "main": "index.html"
     },
     "devDependencies": {
-        "@eslint/css": "^0.14.1",
-        "@eslint/js": "^9.39.2",
-        "@eslint/json": "^0.14.0",
-        "@eslint/markdown": "^7.5.1",
-        "eslint": "^9.39.2",
+        "@eslint/css": "^1.4.0",
+        "@eslint/js": "^10.0.1",
+        "@eslint/json": "^2.0.1",
+        "@eslint/markdown": "^8.0.3",
+        "eslint": "^10.9.0",
         "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-prettier": "^5.5.5",
-        "globals": "^17.1.0",
-        "prettier": "^3.8.1"
+        "eslint-plugin-prettier": "^5.5.6",
+        "globals": "^17.11.0",
+        "prettier": "^3.9.6"
     }
 }

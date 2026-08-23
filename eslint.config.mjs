@@ -4,7 +4,6 @@ import json from '@eslint/json';
 import markdown from '@eslint/markdown';
 import css from '@eslint/css';
 import { defineConfig } from 'eslint/config';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 
 export default defineConfig([
     {
@@ -27,5 +26,10 @@ export default defineConfig([
         language: 'markdown/gfm',
         extends: ['markdown/recommended'],
     },
-    { files: ['**/*.css'], plugins: { css }, language: 'css/css', extends: ['css/recommended'] },
+    {
+        files: ['**/*.css'],
+        plugins: { css },
+        language: 'css/css',
+        extends: ['css/recommended'],
+    },
 ]);
