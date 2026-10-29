@@ -1,0 +1,94 @@
+{
+    "th": {
+        "name": "Lymphatics System",
+        "bg": "bg-lymphatic",
+        "pages": [
+            {
+                "title": "ภาพรวมและองค์ประกอบ",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">ระบบน้ำเหลืองช่วยระบายน้ำส่วนเกินจากเนื้อเยื่อ กลับสู่กระแสเลือด และมีบทบาทในภูมิคุ้มกัน ประกอบด้วย หลอดน้ำเหลือง ต่อมน้ำเหลือง ม้าม ต่อมไธมัส และน้ำเหลือง</p>\n            </div>\n          "
+            },
+            {
+                "title": "การไหลของน้ำเหลืองและปัจจัย",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">ปัจจัยที่ช่วยให้น้ำเหลืองไหลเวียน</div>\n              <ul class=\"list-dot muted\">\n                <li>การบีบตัวของกล้ามเนื้อลายรอบหลอดน้ำเหลือง</li>\n                <li>ลิ้นในหลอดน้ำเหลืองป้องกันการไหลย้อน</li>\n                <li>ความดันจากการหายใจและการเคลื่อนไหวของร่างกาย</li>\n              </ul>\n              <p class=\"muted\" style=\"margin-top:1rem;\">ระบบนี้ไม่มีปั๊มโดยตรงเหมือนหัวใจ</p>\n            </div>\n          "
+            },
+            {
+                "title": "การก่อตัวของน้ำเหลือง",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">น้ำส่วนเกินซึมออกจากเส้นเลือดฝอยเข้าสู่ช่องว่างเนื้อเยื่อ กลายเป็นน้ำเนื้อเยื่อ และถูกดูดกลับเข้าหลอดน้ำเหลือง</p>\n            </div>\n          "
+            },
+            {
+                "title": "การดูดซึมไขมันและ Chyle (แลคเทียล)",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">แลคเทียล (Lacteals)</div>\n              <p class=\"muted\">ภายในวิลลัสของลำไส้เล็กมีหลอดน้ำเหลืองขนาดเล็กเรียกว่า <strong>lacteals</strong> ทำหน้าที่ดูดซึมไขมัน (chylomicrons) ที่ดูดซึมจากเยื่อบุลำไส้</p>\n              <div class=\"h3\" style=\"margin-top:8px;\">Chyle คืออะไร?</div>\n              <p class=\"muted\"><strong>Chyle</strong> คือ น้ำเหลืองที่มีไขมันสูง มีลักษณะขาวคล้ายน้ำนม ไหลจากลำไส้เข้าสู่ท่อน้ำเหลืองช่องท้อง รวมตัวที่ <em>cisterna chyli</em> แล้วไหลขึ้น <strong>thoracic duct</strong> ไปเปิดที่ <em>left venous angle</em></p>\n            </div>\n          "
+            },
+            {
+                "title": "เส้นทางหลัก: Thoracic duct และ Right lymphatic duct",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\"><div class=\"h3\">Thoracic duct</div><p class=\"muted\">รับน้ำเหลืองจากส่วนใหญ่ของร่างกาย เท่าสู่หลอดเลือดดำใต้ไหปลาร้าซ้าย</p></div>\n              <div class=\"panel\"><div class=\"h3\">Right lymphatic duct</div><p class=\"muted\">รับจากขวาส่วนบนของร่างกาย เทเข้าหลอดเลือดดำใต้ไหปลาร้าขวา</p></div>\n            </div>\n          "
+            },
+            {
+                "title": "อวัยวะในระบบน้ำเหลือง",
+                "html": "\n            <div class=\"grid-3\">\n              <div class=\"panel\">\n                <div class=\"h3\">ต่อมน้ำเหลือง (Lymph Nodes)</div>\n                <p class=\"muted\">กรองน้ำเหลือง ดักจับเชื้อโรค มีลิมโฟไซต์จำนวนมาก</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">ม้าม (Spleen)</div>\n                <p class=\"muted\">กรองเลือด ทำลาย RBC ที่หมดอายุ สร้างลิมโฟไซต์</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">ต่อมไธมัส (Thymus)</div>\n                <p class=\"muted\">ที่ T-cell เจริญเติบโตและพัฒนา</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "เนื้อเยื่อน้ำเหลือง: Tonsils และ MALT",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">เนื้อเยื่อน้ำเหลืองกระจาย (MALT) และทอนซิลช่วยดักจับเชื้อโรคที่เข้าสู่ร่างกายผ่านทางเดินอาหารและทางเดินหายใจ</p>\n            </div>\n          "
+            },
+            {
+                "title": "บทบาทในระบบภูมิคุ้มกัน",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>การสร้างแอนติบอดี:</strong> B-cells ในต่อมน้ำเหลืองสร้างแอนติบอดี</li>\n                <li><strong>การทำงานของ T-cells:</strong> ทำลายเซลล์ติดเชื้อหรือผิดปกติโดยตรง</li>\n              </ul>\n            </div>\n          "
+            },
+            {
+                "title": "ความสัมพันธ์กับระบบไหลเวียนเลือด",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">รวบรวมน้ำเหลืองจากเนื้อเยื่อกลับเข้าสู่กระแสเลือด ช่วยรักษาสมดุลของเหลว</p>\n            </div>\n          "
+            },
+            {
+                "title": "ภาวะบวมน้ำ (Edema) และโรคที่เกี่ยวข้อง",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>Lymphedema:</strong> น้ำเหลืองระบายไม่ดี ทำให้บวมเรื้อรัง</li>\n                <li><strong>การติดเชื้อของต่อมน้ำเหลือง:</strong> ต่อมโต เจ็บ</li>\n              </ul>\n            </div>\n          "
+            }
+        ]
+    },
+    "en": {
+        "name": "Lymphatic System",
+        "bg": "bg-lymphatic",
+        "pages": [
+            {
+                "title": "Overview and Components",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">Drains excess tissue fluid back to blood, and plays key role in immunity. Includes Lymph vessels, Nodes, Spleen, Thymus, and Lymph.</p>\n            </div>\n          "
+            },
+            {
+                "title": "Lymph Flow factors",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">Flow Mechanics</div>\n              <ul class=\"list-dot muted\">\n                <li>Skeletal muscle contraction</li>\n                <li>Valves prevent backflow</li>\n                <li>Breathing pressure changes</li>\n              </ul>\n              <p class=\"muted\" style=\"margin-top:1rem;\">No central pump like the heart.</p>\n            </div>\n          "
+            },
+            {
+                "title": "Lymph Formation",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">Fluid leaks from capillaries into tissue spaces (interstitial fluid), then enters lymph capillaries to become lymph.</p>\n            </div>\n          "
+            },
+            {
+                "title": "Fat Absorption & Chyle",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">Lacteals</div>\n              <p class=\"muted\">Small lymph vessels in small intestine villi absorb fats (chylomicrons).</p>\n              <div class=\"h3\" style=\"margin-top:8px;\">What is Chyle?</div>\n              <p class=\"muted\">Milky lymph rich in fat. Flows from intestine to <em>cisterna chyli</em>, up the <strong>thoracic duct</strong> to bloodstream.</p>\n            </div>\n          "
+            },
+            {
+                "title": "Main Ducts",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\"><div class=\"h3\">Thoracic duct</div><p class=\"muted\">Drains most of body. Empties into Left Subclavian Vein.</p></div>\n              <div class=\"panel\"><div class=\"h3\">Right lymphatic duct</div><p class=\"muted\">Drains upper right body. Empties into Right Subclavian Vein.</p></div>\n            </div>\n          "
+            },
+            {
+                "title": "Lymphatic Organs",
+                "html": "\n            <div class=\"grid-3\">\n              <div class=\"panel\">\n                <div class=\"h3\">Lymph Nodes</div>\n                <p class=\"muted\">Filter lymph, trap pathogens. Rich in lymphocytes.</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Spleen</div>\n                <p class=\"muted\">Filters blood, destroys old RBCs, immune response.</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Thymus</div>\n                <p class=\"muted\">Site of T-cell maturation.</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Lymphatic Tissues: MALT & Tonsils",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">Tonsils and MALT (Mucosa-Associated Lymphoid Tissue) trap pathogens entering via nose/mouth.</p>\n            </div>\n          "
+            },
+            {
+                "title": "Immune Role",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>Antibodies:</strong> Produced by B-cells</li>\n                <li><strong>T-cells:</strong> Directly destroy infected/abnormal cells</li>\n              </ul>\n            </div>\n          "
+            },
+            {
+                "title": "Connection to Circulatory",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">Returns fluid to bloodstream, maintaining fluid balance.</p>\n            </div>\n          "
+            },
+            {
+                "title": "Conditions",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>Lymphedema:</strong> Swelling due to blockage/damage</li>\n                <li><strong>Lymphadenitis:</strong> Swollen/infected nodes</li>\n              </ul>\n            </div>\n          "
+            }
+        ]
+    }
+}

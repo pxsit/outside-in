@@ -4,26 +4,54 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#0b1020" />
-        <title>Lymphatics System - Outside In</title>
+        <meta name="color-scheme" content="dark" />
+        <meta
+            name="description"
+            content="เรียนรู้เรื่องน้ำเหลือง หลอดน้ำเหลือง อวัยวะน้ำเหลือง และภูมิคุ้มกัน พร้อมแบบทดสอบท้ายบท"
+        />
+        <link rel="canonical" href="https://outside-in.blog/lessons/lymphatic.html" />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Outside In" />
+        <meta property="og:title" content="ระบบน้ำเหลือง (Lymphatic System) - Outside In" />
+        <meta
+            property="og:description"
+            content="เรียนรู้เรื่องน้ำเหลือง หลอดน้ำเหลือง อวัยวะน้ำเหลือง และภูมิคุ้มกัน พร้อมแบบทดสอบท้ายบท"
+        />
+        <meta property="og:url" content="https://outside-in.blog/lessons/lymphatic.html" />
+        <meta property="og:locale" content="th_TH" />
+        <meta property="og:image" content="https://outside-in.blog/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="ระบบน้ำเหลือง (Lymphatic System) - Outside In" />
+        <meta
+            name="twitter:description"
+            content="เรียนรู้เรื่องน้ำเหลือง หลอดน้ำเหลือง อวัยวะน้ำเหลือง และภูมิคุ้มกัน พร้อมแบบทดสอบท้ายบท"
+        />
+        <meta name="twitter:image" content="https://outside-in.blog/assets/og-image.jpg" />
+        <title>ระบบน้ำเหลือง (Lymphatic System) - Outside In</title>
+        <link rel="icon" href="../favicon.ico" sizes="any" />
         <link rel="stylesheet" href="../css/style.css" />
         <link rel="stylesheet" href="../css/animations.css" />
         <link rel="stylesheet" href="../css/lesson-page.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
             href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        />
     </head>
     <body class="system-page">
-        <header class="header-bar" role="banner">
+        <a class="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
+        <header class="header-bar">
             <div class="header-inner">
-                <div class="brand">Outside In</div>
-                <nav class="header-nav">
-                    <button id="lang-toggle" class="lang-toggle-btn" aria-label="Toggle Language">
-                        <i class="fas fa-globe"></i>
+                <a class="brand" href="../index.html">Outside In</a>
+                <nav class="header-nav" aria-label="เมนูหลัก">
+                    <button
+                        type="button"
+                        id="lang-toggle"
+                        class="lang-toggle-btn"
+                        aria-label="Toggle Language"
+                    >
+                        <i class="icon icon-globe" aria-hidden="true"></i>
                         <span id="current-lang">TH</span>
                     </button>
                     <a
@@ -31,42 +59,48 @@
                         href="https://forms.gle/VsbaUmrFEPGE4XKC6"
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label="Open feedback form"
                     >
-                        <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                        <i class="icon icon-comment-dots" aria-hidden="true"></i>
                         Feedback
                     </a>
-                    <a class="back-link" href="../index.html#menu" aria-label="กลับไปหน้าเมนูหลัก">
-                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    <a class="back-link" href="../index.html#menu">
+                        <i class="icon icon-arrow-left" aria-hidden="true"></i>
                         Menu
                     </a>
                 </nav>
             </div>
         </header>
 
-        <main class="system-hero">
+        <main class="system-hero" id="main">
             <div class="system-bg lymphatic" aria-hidden="true"></div>
-            <div class="system-content container" role="article">
-                <h1 class="section-title">Lymphatics System</h1>
-                <p class="section-description">
-                    เนื้อหาเดียวกับโหมดบทเรียน แต่ภาพพื้นหลังคงที่เต็มหน้า
-                </p>
+            <div class="system-content container">
+                <h1 class="section-title">Lymphatic System</h1>
+                <noscript
+                    ><p class="section-description">
+                        ต้องเปิดใช้งาน JavaScript เพื่อดูบทเรียน
+                    </p></noscript
+                >
             </div>
         </main>
 
-        <section id="final-quiz" class="quiz-section" style="display: none">
-            <div class="quiz-bg"></div>
+        <section
+            id="final-quiz"
+            class="quiz-section"
+            style="display: none"
+            aria-labelledby="quiz-title"
+        >
+            <div class="quiz-bg" aria-hidden="true"></div>
             <div class="quiz-container">
-                <h2 class="section-title center">Quiz</h2>
-                <div id="quiz-stage"></div>
+                <h2 id="quiz-title" class="section-title center" data-i18n="quiz_title">Quiz</h2>
+                <div id="quiz-stage" aria-live="polite"></div>
             </div>
         </section>
 
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
-        <script src="../js/lessons.js"></script>
-        <script src="../js/quiz-handler.js"></script>
-        <script src="../js/main.js"></script>
-        <script src="../js/lesson-page.js"></script>
+        <script src="../js/vendor/gsap.min.js" defer></script>
+        <script src="../js/vendor/ScrollTrigger.min.js" defer></script>
+        <script src="../js/lessons.js" defer></script>
+        <script src="../js/quiz-handler.js" defer></script>
+        <script src="../js/main.js" defer></script>
+        <script src="../js/lesson-page.js" defer></script>
     </body>
 </html>

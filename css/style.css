@@ -391,16 +391,16 @@ a.menu-card {
     opacity: 0.45;
 }
 .menu-bg.circulatory {
-    background-image: url('../assets/circulatory.jpg');
+    background-image: url('../assets/circulatory.webp');
 }
 .menu-bg.respiratory {
-    background-image: url('../assets/respiratory.jpg');
+    background-image: url('../assets/respiratory.webp');
 }
 .menu-bg.lymphatic {
-    background-image: url('../assets/lymphatic.jpg');
+    background-image: url('../assets/lymphatic.webp');
 }
 .menu-bg.nervous {
-    background-image: url('../assets/nervous.jpg');
+    background-image: url('../assets/nervous.webp');
 }
 .menu-text {
     position: relative;
@@ -504,56 +504,6 @@ a.menu-card {
     color: #c7cbe6;
     margin: 0.25rem 0;
 }
-/* Lesson section */
-.lesson-section {
-    position: relative;
-    padding: 100px 0;
-}
-.lesson-bg {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(600px 300px at 20% 10%, rgba(0, 102, 204, 0.2), transparent),
-        radial-gradient(700px 300px at 80% 20%, rgba(255, 51, 102, 0.2), transparent);
-    opacity: 0.7;
-}
-.lesson-container {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-.lesson-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-.lesson-header h2 {
-    font-size: 2rem;
-    color: #fff;
-}
-.lesson-progress {
-    color: #a6b0cf;
-    font-weight: 600;
-}
-.lesson-content {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 1.5rem;
-    min-height: 360px;
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-}
-.lesson-content > * {
-    position: relative;
-    z-index: 1;
-}
-.lesson-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-}
 .btn {
     padding: 12px 20px;
     border-radius: 12px;
@@ -584,49 +534,6 @@ a.menu-card {
     cursor: not-allowed;
     pointer-events: none;
     filter: grayscale(10%);
-}
-
-/* Animated blood flow */
-.blood-flow {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 0;
-}
-.cell {
-    position: absolute;
-    left: -60px;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    opacity: 0.75;
-    filter: blur(0.2px);
-    animation: drift linear infinite;
-}
-.cell.rbc {
-    background: radial-gradient(circle at 35% 35%, #ff7a7a, #b91c1c);
-    box-shadow: inset 0 6px 12px rgba(0, 0, 0, 0.35);
-}
-.cell.wbc {
-    width: 28px;
-    height: 28px;
-    background: radial-gradient(circle at 40% 40%, #e5e7eb, #9ca3af);
-    opacity: 0.7;
-}
-.cell.platelet {
-    width: 16px;
-    height: 16px;
-    background: radial-gradient(circle, #fde68a, #f59e0b);
-    opacity: 0.8;
-}
-@keyframes drift {
-    from {
-        transform: translateX(0) translateY(0) scale(1);
-    }
-    to {
-        transform: translateX(calc(100% + 120px)) translateY(10px) scale(0.95);
-    }
 }
 
 /* Respiratory subtle breathing animation */
@@ -678,24 +585,24 @@ a.menu-card {
 
 /* Simple animated backgrounds for topic pages */
 .bg-circulatory {
-    background-image: url('../assets/circulatory.jpg');
+    background-image: url('../assets/circulatory.webp');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     opacity: 0.2;
 }
 .bg-respiratory {
-    background-image: url('../assets/respiratory.jpg');
+    background-image: url('../assets/respiratory.webp');
     background-size: cover;
     opacity: 0.12;
 }
 .bg-lymphatic {
-    background-image: url('../assets/lymphatic.jpg');
+    background-image: url('../assets/lymphatic.webp');
     background-size: cover;
     opacity: 0.12;
 }
 .bg-nervous {
-    background-image: url('../assets/nervous.jpg');
+    background-image: url('../assets/nervous.webp');
     background-size: cover;
     opacity: 0.12;
 }
@@ -732,6 +639,10 @@ a.menu-card {
     margin-top: 12px;
 }
 .quiz-choice {
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    text-align: left;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid transparent;
     padding: 12px;
@@ -946,4 +857,151 @@ section {
 .hero-description,
 .cta-button {
     opacity: 1;
+}
+
+/* Accessibility */
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 12px;
+    z-index: 2000;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #ff6b9a;
+    color: #0b1020;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+.skip-link:focus {
+    top: 12px;
+}
+
+.nav-link:focus-visible,
+.hamburger:focus-visible,
+.btn:focus-visible,
+.cta-button:focus-visible,
+.quiz-choice:focus-visible,
+.lang-toggle-btn:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.quiz-choice-group {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    padding: 4px;
+}
+
+.lang-toggle-btn {
+    font: inherit;
+}
+
+.hero-video-wrap {
+    background: #000 center / cover no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        /* eslint-disable-next-line css/no-important -- reduced-motion must override every rule */
+        animation-duration: 0.01ms !important;
+        /* eslint-disable-next-line css/no-important -- reduced-motion must override every rule */
+        animation-iteration-count: 1 !important;
+        /* eslint-disable-next-line css/no-important -- reduced-motion must override every rule */
+        transition-duration: 0.01ms !important;
+    }
+
+    .particles {
+        display: none;
+    }
+
+    .fade-in-section {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Inline icons (Feather-style SVG masks; replaces the Font Awesome download) */
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+.icon-globe {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cpath d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'/%3E%3C/svg%3E");
+}
+.icon-play {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='6 3 20 12 6 21 6 3' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='6 3 20 12 6 21 6 3' fill='black'/%3E%3C/svg%3E");
+}
+.icon-comment-dots {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/%3E%3C/svg%3E");
+}
+.icon-arrow-left {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='19' y1='12' x2='5' y2='12'/%3E%3Cpolyline points='12 19 5 12 12 5'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='19' y1='12' x2='5' y2='12'/%3E%3Cpolyline points='12 19 5 12 12 5'/%3E%3C/svg%3E");
+}
+.icon-arrow-right {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3Cpolyline points='12 5 19 12 12 19'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3Cpolyline points='12 5 19 12 12 19'/%3E%3C/svg%3E");
+}
+.icon-bars {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='3' y1='12' x2='21' y2='12'/%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cline x1='3' y1='18' x2='21' y2='18'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='3' y1='12' x2='21' y2='12'/%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cline x1='3' y1='18' x2='21' y2='18'/%3E%3C/svg%3E");
+}
+.icon-award {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='7'/%3E%3Cpolyline points='8.21 13.89 7 23 12 20 17 23 15.79 13.88'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='7'/%3E%3Cpolyline points='8.21 13.89 7 23 12 20 17 23 15.79 13.88'/%3E%3C/svg%3E");
+}
+
+.site-footer {
+    padding: 2rem 0;
+    text-align: center;
+    color: #a6b0cf;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.site-footer a {
+    color: #ff9fc2;
+}
+
+.header.scrolled {
+    background: rgba(5, 10, 25, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.error-toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #f44336;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    z-index: 10000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }

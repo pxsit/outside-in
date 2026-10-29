@@ -39,7 +39,18 @@
         "lesson_back": "Back",
         "lesson_menu": "Menu",
         "lesson_next": "Next",
-        "quiz_title": "Quiz"
+        "quiz_title": "Quiz",
+        "skip_link": "Skip to menu",
+        "footer_school": "Wisutthirangsi School, Kanchanaburi",
+        "footer_feedback": "Give feedback",
+        "error_generic": "Something went wrong",
+        "lesson_start_quiz": "Start Quiz for ",
+        "lesson_desc_circulatory": "Blood, the heart, blood vessels and circulation throughout the body.",
+        "lesson_desc_respiratory": "Airways, lungs, gas exchange and how breathing is controlled.",
+        "lesson_desc_lymphatic": "Lymph, lymphatic vessels and organs, and the body's immune defenses.",
+        "lesson_desc_nervous": "The brain, spinal cord, neurons and how signals travel through the body.",
+        "quiz_retry": "Try again",
+        "lesson_load_error": "Could not load this lesson. Please try again."
     },
     "th": {
         "nav_home": "หน้าแรก",
@@ -81,6 +92,17 @@
         "lesson_back": "ย้อนกลับ",
         "lesson_menu": "เมนู",
         "lesson_next": "ถัดไป",
-        "quiz_title": "แบบทดสอบ"
+        "quiz_title": "แบบทดสอบ",
+        "skip_link": "ข้ามไปยังเมนู",
+        "footer_school": "โรงเรียนวิสุทธรังษี จังหวัดกาญจนบุรี",
+        "footer_feedback": "ให้ Feedback",
+        "error_generic": "เกิดข้อผิดพลาดในระบบ",
+        "lesson_start_quiz": "เริ่มแบบทดสอบสำหรับ",
+        "lesson_desc_circulatory": "เลือด หัวใจ หลอดเลือด และการไหลเวียนเลือดทั่วร่างกาย",
+        "lesson_desc_respiratory": "ทางเดินหายใจ ปอด การแลกเปลี่ยนแก๊ส และการควบคุมการหายใจ",
+        "lesson_desc_lymphatic": "น้ำเหลือง หลอดน้ำเหลือง อวัยวะน้ำเหลือง และภูมิคุ้มกันของร่างกาย",
+        "lesson_desc_nervous": "สมอง ไขสันหลัง เซลล์ประสาท และการส่งสัญญาณในร่างกาย",
+        "quiz_retry": "ลองอีกครั้ง",
+        "lesson_load_error": "ไม่สามารถโหลดบทเรียนได้ กรุณาลองใหม่อีกครั้ง"
     }
 }

@@ -1,0 +1,126 @@
+{
+    "th": {
+        "name": "Nervous System",
+        "bg": "bg-nervous",
+        "pages": [
+            {
+                "title": "ภาพรวมและหน้าที่",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">ระบบประสาททำหน้าที่รับข้อมูล ประมวลผล และสั่งการ ประกอบด้วย <strong>ระบบประสาทส่วนกลาง (CNS)</strong> คือ สมองและไขสันหลัง และ <strong>ระบบประสาทรอบนอก (PNS)</strong> คือ เส้นประสาททั่วร่างกาย</p>\n            </div>\n          "
+            },
+            {
+                "title": "เซลล์ประสาท (Neuron)",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">ส่วนประกอบ</div>\n                <ul class=\"list-dot muted\">\n                  <li><strong>Dendrites</strong> รับสัญญาณ</li>\n                  <li><strong>Cell body</strong> ประมวลผล</li>\n                  <li><strong>Axon</strong> ส่งสัญญาณออก</li>\n                  <li><strong>Myelin sheath</strong> ช่วยให้ส่งสัญญาณเร็วขึ้น</li>\n                  <li><strong>Synapse</strong> จุดเชื่อมต่อระหว่างเซลล์ประสาท</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">ภาพประกอบ</div>\n                <div style=\"height:200px; position:relative; border-radius:8px;\">\n                  <img loading=\"lazy\" decoding=\"async\" src=\"../assets/neurons.webp\" alt=\"ภาพเซลล์ประสาท\" style=\"position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; box-sizing:border-box; padding:8px;\">\n                </div>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "ระบบประสาทส่วนกลาง (CNS)",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">สมองและไขสันหลัง</div>\n              <p class=\"muted\">สมองแบ่งเป็นหลายส่วน เช่น ซีรีบรัม ซีรีเบลลัม ก้านสมอง แต่ละส่วนมีหน้าที่ต่างกัน</p>\n              <div class=\"grid-3\" style=\"margin-top:8px;\">\n                <div class=\"panel\">\n                  <div class=\"h3\">\n                    <span style=\"display:inline-block;width:12px;height:12px;background:#60a5fa;border-radius:3px;margin-right:6px;\">\n                      </span>ซีรีบรัม\n                        </div>\n                          <p class=\"muted\">คิด วิเคราะห์ รับรู้ความรู้สึก การเคลื่อนไหวสมัครใจ</p>\n                        </div>\n                <div class=\"panel\"><div class=\"h3\"><span style=\"display:inline-block;width:12px;height:12px;background:#f472b6;border-radius:3px;margin-right:6px;\"></span>ซีรีเบลลัม</div><p class=\"muted\">การทรงตัว ประสานงานการเคลื่อนไหว</p></div>\n                <div class=\"panel\"><div class=\"h3\"><span style=\"display:inline-block;width:12px;height:12px;background:#805253;border-radius:3px;margin-right:6px;\"></span>ก้านสมอง</div><p class=\"muted\">การหายใจ ชีพจร รีเฟล็กซ์สำคัญ</p></div>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "ก้านสมอง (Brainstem): Midbrain / Pons / Medulla",
+                "html": "\n            <div class=\"grid-3\">\n              <div class=\"panel\">\n                <div class=\"h3\">Midbrain (สมองส่วนกลาง)</div>\n                <ul class=\"list-dot muted\">\n                  <li>ควบคุมรีเฟล็กซ์ด้านการมองเห็น/การได้ยิน (เช่น หันตามเสียง/แสง)</li>\n                  <li>เป็นทางผ่านของใยประสาทมอเตอร์สำคัญ</li>\n                  <li>เกี่ยวข้องกับการเริ่มการเคลื่อนไหว</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Pons (พอนส์)</div>\n                <ul class=\"list-dot muted\">\n                  <li>เป็น “สะพาน” เชื่อมสมองหลายส่วน</li>\n                  <li>ช่วยควบคุมจังหวะการหายใจ</li>\n                  <li>ที่มาของเส้นประสาทสมองบางคู่</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Medulla oblongata (เมดัลลา)</div>\n                <ul class=\"list-dot muted\">\n                  <li>ศูนย์ควบคุมสำคัญ: หัวใจ หลอดเลือด การหายใจ</li>\n                  <li>รีเฟล็กซ์: ไอ จาม อาเจียน กลืน</li>\n                  <li>จุดไขว้เส้นใยมอเตอร์หลัก (pyramidal decussation)</li>\n                </ul>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "ไดเอนเซฟาลอน (Diencephalon): Thalamus & Hypothalamus",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Thalamus</div>\n                <p class=\"muted\">ศูนย์ถ่ายทอดสัญญาณรับความรู้สึกส่วนใหญ่ไปยังซีรีบรัม มีบทบาทในการตื่นตัว/ความสนใจ</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Hypothalamus</div>\n                <ul class=\"list-dot muted\">\n                  <li>ควบคุมอุณหภูมิ หิว กระหาย นาฬิกาชีวภาพ</li>\n                  <li>เชื่อมโยงระบบประสาท-ต่อมไร้ท่อ (ควบคุมต่อมใต้สมอง)</li>\n                  <li>เกี่ยวข้องกับอารมณ์และแรงจูงใจ</li>\n                </ul>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "ซีรีบรัม: ตีความตามกลีบสมอง",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">กลีบหน้าผาก (Frontal)</div>\n                <p class=\"muted\">การวางแผน เหตุผล บุคลิกภาพ มอเตอร์สมัครใจ</p>\n                <div class=\"h3\" style=\"margin-top:8px;\">กลีบข้าง (Parietal)</div>\n                <p class=\"muted\">สัมผัส อุณหภูมิ ความเจ็บปวด การรับรู้ตำแหน่งร่างกาย</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">กลีบขมับ (Temporal)</div>\n                <p class=\"muted\">การได้ยิน ความจำ ภาษา (เวอร์นิเก้)</p>\n                <div class=\"h3\" style=\"margin-top:8px;\">กลีบท้ายทอย (Occipital)</div>\n                <p class=\"muted\">การมองเห็นและตีความภาพ</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "ระบบลิมบิก (Limbic) และปมประสาทฐาน (Basal ganglia)",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Limbic system</div>\n                <ul class=\"list-dot muted\">\n                  <li>เกี่ยวข้องกับอารมณ์ ความจำ แรงจูงใจ</li>\n                  <li>โครงสร้างสำคัญ: ฮิปโปแคมปัส อะมิกดะลา ซิงกูเลตไจรัส</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Basal ganglia</div>\n                <ul class=\"list-dot muted\">\n                  <li>ควบคุมการเริ่ม/ความราบรื่นของการเคลื่อนไหว</li>\n                  <li>ความผิดปกติเกี่ยวข้องกับพาร์กินสัน/ฮันติงตัน</li>\n                </ul>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "ไขสันหลังและรีเฟล็กซ์",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <p class=\"muted\">ไขสันหลังคือทางผ่านของสัญญาณระหว่างสมองและร่างกาย และควบคุมการตอบสนองอัตโนมัติที่เรียกว่า 'รีเฟล็กซ์' เช่น การกระตุกขาเมื่อถูกเคาะที่หัวเข่า</p>\n              </div>\n              <div class=\"panel\"><img loading=\"lazy\" decoding=\"async\" src=\"../assets/spinal-cord.webp\" alt=\"ภาพตัดขวางไขสันหลัง\" style=\"width:100%; border-radius:8px;\"></div>\n            </div>\n          "
+            },
+            {
+                "title": "เซลล์เกลีย (Glial cells)",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">ชนิดหลัก</div>\n                <ul class=\"list-dot muted\">\n                  <li><strong>Astrocytes</strong> รองรับเซลล์ประสาท รักษาสมดุลสารเคมี</li>\n                  <li><strong>Oligodendrocytes / Schwann cells</strong> สร้างไมอีลินใน CNS/PNS</li>\n                  <li><strong>Microglia</strong> ภูมิคุ้มกันในสมอง เก็บกินเศษเซลล์</li>\n                  <li><strong>Ependymal cells</strong> บุโพรงสมอง เกี่ยวข้องกับน้ำไขสันหลัง</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">ความสำคัญ</div>\n                <p class=\"muted\">เกลียมีบทบาทต่อการส่งสัญญาณ การฟื้นฟู และโรคทางระบบประสาทหลายชนิด</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "ศักย์ไฟฟ้าและไซแนปส์",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">ศักย์ไฟฟ้า (Action potential)</div>\n              <ul class=\"list-dot muted\">\n                <li>การไหลของ Na+/K+ ทำให้ขั้วเซลล์เปลี่ยนชั่วคราวตามแอกซอน</li>\n                <li>ไมอีลินช่วยให้ส่งสัญญาณแบบกระโดด (saltatory) เร็วขึ้น</li>\n              </ul>\n              <div class=\"h3\" style=\"margin-top:8px;\">ไซแนปส์เคมี</div>\n              <p class=\"muted\">สัญญาณไฟฟ้าถูกแปลงเป็นสารสื่อประสาท ปล่อยในช่องไซแนปส์ไปจับตัวรับของเซลล์ถัดไป</p>\n            </div>\n          "
+            },
+            {
+                "title": "ระบบประสาทรอบนอก (PNS)",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">การแบ่งตามการทำงาน</div>\n              <ul class=\"list-dot muted\">\n                <li><strong>โซมาติก (Somatic):</strong> ควบคุมกล้ามเนื้อลาย ภายใต้อำนาจจิตใจ</li>\n                <li><strong>อัตโนมัติ (Autonomic):</strong> ควบคุมอวัยวะภายใน นอกอำนาจจิตใจ</li>\n              </ul>\n            </div>\n          "
+            },
+            {
+                "title": "ระบบประสาทอัตโนมัติ: ซิมพาเทติก vs พาราซิมพาเทติก",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">ซิมพาเทติก (Sympathetic)</div>\n                <p class=\"muted\">สู้หรือหนี (Fight/Flight): หัวใจเต้นเร็ว รูม่านตาขยาย หลั่งอะดรีนาลีน</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">พาราซิมพาเทติก (Parasympathetic)</div>\n                <p class=\"muted\">พักและย่อย (Rest/Digest): หัวใจช้าลง กระตุ้นการย่อย</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "สารสื่อประสาทสำคัญ",
+                "html": "\n            <div class=\"grid-3\">\n              <div class=\"panel\"><div class=\"h3\">Acetylcholine</div><p class=\"muted\">การหดตัวของกล้ามเนื้อ และพาราซิมพาเทติก</p></div>\n              <div class=\"panel\"><div class=\"h3\">Glutamate / GABA</div><p class=\"muted\">กระตุ้นหลัก vs ยับยั้งหลักใน CNS</p></div>\n              <div class=\"panel\"><div class=\"h3\">Dopamine / Serotonin</div><p class=\"muted\">อารมณ์ การให้รางวัล การนอนหลับ</p></div>\n            </div>\n          "
+            },
+            {
+                "title": "การปกป้องสมอง: Meninges, CSF, BBB",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>Meninges:</strong> Dura, Arachnoid, Pia ป้องกันและรองรับ</li>\n                <li><strong>CSF:</strong> ลดแรงกระแทก ควบคุมสิ่งแวดล้อม</li>\n                <li><strong>Blood-brain barrier:</strong> คัดกรองสารที่จะเข้าสู่สมอง</li>\n              </ul>\n            </div>\n          "
+            }
+        ]
+    },
+    "en": {
+        "name": "Nervous System",
+        "bg": "bg-nervous",
+        "pages": [
+            {
+                "title": "Overview and Functions",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">The nervous system gathers information, processes it, and commands responses. It consists of the <strong>Central Nervous System (CNS)</strong>: Brain and Spinal Cord, and the <strong>Peripheral Nervous System (PNS)</strong>: Nerves throughout the body.</p>\n            </div>\n          "
+            },
+            {
+                "title": "Neurons",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Components</div>\n                <ul class=\"list-dot muted\">\n                  <li><strong>Dendrites:</strong> Receive signals</li>\n                  <li><strong>Cell body:</strong> Processes signals</li>\n                  <li><strong>Axon:</strong> Sends signals out</li>\n                  <li><strong>Myelin sheath:</strong> Insulates axon, speeds up transmission</li>\n                  <li><strong>Synapse:</strong> Junction between neurons</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Illustration</div>\n                <div style=\"height:200px; position:relative; border-radius:8px;\">\n                  <img loading=\"lazy\" decoding=\"async\" src=\"../assets/neurons.webp\" alt=\"Illustration of neurons\" style=\"position:absolute; inset:0; width:100%; height:100%; object-fit:contain; object-position:center; box-sizing:border-box; padding:8px;\">\n                </div>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Central Nervous System (CNS)",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">Brain and Spinal Cord</div>\n              <p class=\"muted\">The brain has major parts like Cerebrum, Cerebellum, and Brainstem, each with different functions.</p>\n              <div class=\"grid-3\" style=\"margin-top:8px;\">\n                <div class=\"panel\">\n                  <div class=\"h3\">\n                    <span style=\"display:inline-block;width:12px;height:12px;background:#60a5fa;border-radius:3px;margin-right:6px;\">\n                      </span>Cerebrum\n                        </div>\n                          <p class=\"muted\">Thinking, analysis, sensory perception, voluntary movement</p>\n                        </div>\n                <div class=\"panel\"><div class=\"h3\"><span style=\"display:inline-block;width:12px;height:12px;background:#f472b6;border-radius:3px;margin-right:6px;\"></span>Cerebellum</div><p class=\"muted\">Balance, coordination</p></div>\n                <div class=\"panel\"><div class=\"h3\"><span style=\"display:inline-block;width:12px;height:12px;background:#805253;border-radius:3px;margin-right:6px;\"></span>Brainstem</div><p class=\"muted\">Breathing, heart rate, reflexes</p></div>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Brainstem: Midbrain / Pons / Medulla",
+                "html": "\n            <div class=\"grid-3\">\n              <div class=\"panel\">\n                <div class=\"h3\">Midbrain</div>\n                <ul class=\"list-dot muted\">\n                  <li>Visual/Auditory reflexes (e.g., turning towards sound/light)</li>\n                  <li>Pathway for motor fibers</li>\n                  <li>Involved in movement initiation</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Pons</div>\n                <ul class=\"list-dot muted\">\n                  <li>\"Bridge\" connecting brain parts</li>\n                  <li>Helps control breathing rhythm</li>\n                  <li>Origin of some cranial nerves</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Medulla oblongata</div>\n                <ul class=\"list-dot muted\">\n                  <li>Vital centers: Heart, Blood vessels, Breathing</li>\n                  <li>Reflexes: Coughing, Sneezing, Vomiting, Swallowing</li>\n                  <li>Pyramidal decussation (crossing of motor fibers)</li>\n                </ul>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Diencephalon: Thalamus & Hypothalamus",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Thalamus</div>\n                <p class=\"muted\">Relay station for sensory impulses to the cerebrum. Role in alertness/attention.</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Hypothalamus</div>\n                <ul class=\"list-dot muted\">\n                  <li>Regulates Temperature, Hunger, Thirst, Biological clock</li>\n                  <li>Links Nervous and Endocrine systems (Controls Pituitary)</li>\n                  <li>Involved in emotion and motivation</li>\n                </ul>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Cerebrum: Lobes",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Frontal Lobe</div>\n                <p class=\"muted\">Planning, Reasoning, Personality, Voluntary movement</p>\n                <div class=\"h3\" style=\"margin-top:8px;\">Parietal Lobe</div>\n                <p class=\"muted\">Touch, Temperature, Pain, Spatial awareness</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Temporal Lobe</div>\n                <p class=\"muted\">Hearing, Memory, Language (Wernicke's)</p>\n                <div class=\"h3\" style=\"margin-top:8px;\">Occipital Lobe</div>\n                <p class=\"muted\">Vision and visual interpretation</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Limbic System & Basal Ganglia",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Limbic System</div>\n                <ul class=\"list-dot muted\">\n                  <li>Emotion, Memory, Motivation</li>\n                  <li>Key structures: Hippocampus, Amygdala, Cingulate gyrus</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Basal Ganglia</div>\n                <ul class=\"list-dot muted\">\n                  <li>Control movement initiation/smoothness</li>\n                  <li>Disorders linked to Parkinson's/Huntington's</li>\n                </ul>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Spinal Cord and Reflexes",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <p class=\"muted\">Path for signals between brain and body. Controls automatic responses called 'reflexes', like the knee-jerk reaction.</p>\n              </div>\n              <div class=\"panel\"><img loading=\"lazy\" decoding=\"async\" src=\"../assets/spinal-cord.webp\" alt=\"Cross-section diagram of the spinal cord\" style=\"width:100%; border-radius:8px;\"></div>\n            </div>\n          "
+            },
+            {
+                "title": "Glial Cells",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Major Types</div>\n                <ul class=\"list-dot muted\">\n                  <li><strong>Astrocytes:</strong> Support neurons, chemical balance</li>\n                  <li><strong>Oligodendrocytes / Schwann cells:</strong> Create myelin in CNS/PNS</li>\n                  <li><strong>Microglia:</strong> Immune defense, cleanup debris</li>\n                  <li><strong>Ependymal cells:</strong> Line ventricles, produce CSF</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Importance</div>\n                <p class=\"muted\">Crucial for signal transmission, repair, and many neurological diseases.</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Action Potential & Synapses",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">Action Potential</div>\n              <ul class=\"list-dot muted\">\n                <li>Flow of Na+/K+ changes cell polarity along axon</li>\n                <li>Myelin enables faster 'saltatory' conduction</li>\n              </ul>\n              <div class=\"h3\" style=\"margin-top:8px;\">Chemical Synapse</div>\n              <p class=\"muted\">Electrical signal converted to neurotransmitters, released into gap to bind receptors on next cell.</p>\n            </div>\n          "
+            },
+            {
+                "title": "Peripheral Nervous System (PNS)",
+                "html": "\n            <div class=\"panel\">\n              <div class=\"h3\">Functional Division</div>\n              <ul class=\"list-dot muted\">\n                <li><strong>Somatic:</strong> Voluntary control of skeletal muscles</li>\n                <li><strong>Autonomic:</strong> Involuntary control of internal organs</li>\n              </ul>\n            </div>\n          "
+            },
+            {
+                "title": "Autonomic: Sympathetic vs Parasympathetic",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Sympathetic</div>\n                <p class=\"muted\">Fight or Flight: Increased heart rate, dilated pupils, adrenaline release</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Parasympathetic</div>\n                <p class=\"muted\">Rest and Digest: Slower heart rate, digestion stimulation</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Key Neurotransmitters",
+                "html": "\n            <div class=\"grid-3\">\n              <div class=\"panel\"><div class=\"h3\">Acetylcholine</div><p class=\"muted\">Muscle contraction, Parasympathetic</p></div>\n              <div class=\"panel\"><div class=\"h3\">Glutamate / GABA</div><p class=\"muted\">Main Excitatory vs Main Inhibitory in CNS</p></div>\n              <div class=\"panel\"><div class=\"h3\">Dopamine / Serotonin</div><p class=\"muted\">Mood, Reward, Sleep</p></div>\n            </div>\n          "
+            },
+            {
+                "title": "Brain Protection: Meninges, CSF, BBB",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>Meninges:</strong> Dura, Arachnoid, Pia layers protect and support</li>\n                <li><strong>CSF:</strong> Shock absorber, chemical environment control</li>\n                <li><strong>Blood-brain barrier:</strong> Filters substances entering brain</li>\n              </ul>\n            </div>\n          "
+            }
+        ]
+    }
+}

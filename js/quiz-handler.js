@@ -226,9 +226,16 @@
           </div>
                     ${skippedSection}
           <div style="margin-top:1rem; display:flex; justify-content:flex-end; gap:8px;">
-            <button class="btn ghost" onclick="backToMenu()">${isEn ? 'Back to Menu' : 'กลับไปที่เมนู'}</button>
+            <button type="button" class="btn ghost" data-quiz-action="retry">${isEn ? 'Try again' : 'ลองอีกครั้ง'}</button>
+            <button type="button" class="btn ghost" data-quiz-action="menu">${isEn ? 'Back to Menu' : 'กลับไปที่เมนู'}</button>
           </div>
         </div>`;
+            stage.querySelector('[data-quiz-action="retry"]').addEventListener('click', () => {
+                window.startTopicQuiz(currentTopic);
+            });
+            stage.querySelector('[data-quiz-action="menu"]').addEventListener('click', () => {
+                window.backToMenu();
+            });
             // Smooth scroll to ensure the summary is visible
             setTimeout(() => {
                 const quizSection = document.getElementById('final-quiz');
@@ -271,27 +278,35 @@
                 ${tagsHtml}
                 <div class="quiz-choices" id="choices"></div>
                 <div style="margin-top:8px; display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;">
-                    <button id="quiz-prev-btn" class="btn ghost" onclick="prevQuestion()">${isEn ? 'Previous' : 'ก่อนหน้า'}</button>
-                    <button id="quiz-next-btn" class="btn primary" onclick="nextOrSkip()">${isEn ? 'Skip' : 'ข้าม'}</button>
+                    <button type="button" id="quiz-prev-btn" class="btn ghost">${isEn ? 'Previous' : 'ก่อนหน้า'}</button>
+                    <button type="button" id="quiz-next-btn" class="btn primary">${isEn ? 'Skip' : 'ข้าม'}</button>
                 </div>
             </div>`;
+
+        document.getElementById('quiz-prev-btn').addEventListener('click', window.prevQuestion);
+        document.getElementById('quiz-next-btn').addEventListener('click', window.nextOrSkip);
 
         const choicesEl = document.getElementById('choices');
         if (!choicesEl) return;
 
         q.choices.forEach((c, idx) => {
-            const div = document.createElement('div');
-            div.className = 'quiz-choice';
-            div.innerHTML = `<div class="quiz-choice-checkbox"></div><span>${escapeHtml(c)}</span>`;
-            div.addEventListener('click', () => select(idx, div));
-            choicesEl.appendChild(div);
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'quiz-choice';
+            btn.setAttribute('aria-pressed', 'false');
+            btn.innerHTML = `<span class="quiz-choice-checkbox" aria-hidden="true"></span><span>${escapeHtml(c)}</span>`;
+            btn.addEventListener('click', () => select(idx, btn));
+            choicesEl.appendChild(btn);
         });
 
         // Restore previously selected answer visual state
         if (selectedAnswer !== null && selectedAnswer !== undefined) {
             const choiceEls = document.querySelectorAll('.quiz-choice');
             const el = choiceEls[selectedAnswer];
-            if (el) el.classList.add('selected');
+            if (el) {
+                el.classList.add('selected');
+                el.setAttribute('aria-pressed', 'true');
+            }
         }
 
         // Update buttons state/labels
@@ -301,8 +316,12 @@
     function select(idx, el) {
         selectedAnswer = idx;
 
-        document.querySelectorAll('.quiz-choice').forEach((c) => c.classList.remove('selected'));
+        document.querySelectorAll('.quiz-choice').forEach((c) => {
+            c.classList.remove('selected');
+            c.setAttribute('aria-pressed', 'false');
+        });
         el.classList.add('selected');
+        el.setAttribute('aria-pressed', 'true');
 
         updateNavButtons();
     }
@@ -365,52 +384,6 @@
         }
     };
 
-    window.startQuiz = function (topic, questions) {
-        currentTopic = topic;
-        currentQuestions = (questions || [])
-            .map((q) => shuffleChoicesOnQuestion(q))
-            .slice(0, MAX_QUESTIONS);
-        currentIndex = 0;
-        score = 0;
-        responses = [];
-
-        const stage = getStage();
-        if (stage) {
-            stage.innerHTML = '';
-            render();
-        }
-    };
-
-    // Legacy alias (older HTML may still call nextQuizPage)
-    window.nextQuizPage = function () {
-        window.nextOrSkip();
-    };
-
-    window.backToMenu = function () {
-        // Implement back to menu logic
-        const stage = getStage();
-        if (stage) {
-            stage.innerHTML = `<div class="quiz-card animate-fadeInUp" style="text-align:center;">
-                <h3 class="h3">${window.currentLang === 'en' ? 'Quiz Menu' : 'เมนูแบบทดสอบ'}</h3>
-                <p class="muted">${window.currentLang === 'en' ? 'Select a topic to start:' : 'เลือกหัวข้อเพื่อเริ่ม:'}</p>
-                <div id="quiz-topics" style="margin-top:12px;"></div>
-            </div>`;
-            // Render available topics
-            const topicsEl = document.getElementById('quiz-topics');
-            if (topicsEl) {
-                topicsEl.innerHTML = Object.keys(window.quizData)
-                    .map((t) => {
-                        const topic = window.quizData[t];
-                        return `<div class="quiz-topic" onclick="startQuiz('${t}', ${JSON.stringify(topic.questions)})" style="cursor:pointer; margin:8px 0; padding:12px; border-radius:12px; background: rgba(255,255,255,0.1);">
-                            <h4 style="margin:0;">${escapeHtml(t)}</h4>
-                            <div class="muted" style="font-size:14px;">${window.currentLang === 'en' ? `${topic.description} (${topic.questions.length} questions)` : `${topic.descriptionTH} (${topic.questions.length} ข้อ)`}</div>
-                        </div>`;
-                    })
-                    .join('');
-            }
-        }
-    };
-
     window.startTopicQuiz = function (topic, questions) {
         // If questions are passed directly, use them (legacy support or manual override)
         if (questions) {
@@ -436,12 +409,11 @@
         }
 
         // Fetch data for the topic
-        console.log(`Fetching quiz data for ${topic}...`);
 
         // Determine path relative to current page location to support GitHub Pages / subdirs
         // If we are in 'lessons/' folder, go up one level to find 'data/'
         const pathPrefix = window.location.pathname.includes('/lessons/') ? '../' : '';
-        const url = `${pathPrefix}data/quiz-${topic}.json?t=${Date.now()}`;
+        const url = `${pathPrefix}data/quiz-${topic}.json`;
 
         fetch(url)
             .then((response) => {
@@ -457,10 +429,17 @@
             .catch((err) => {
                 console.error(`Failed to load quiz data for ${topic}:`, err);
                 const stage = getStage();
-                if (stage) {
-                    stage.innerHTML = `<div class="quiz-card"><h3 style="color:#f87171">Error loading quiz</h3><p>ไม่สามารถโหลดข้อมูลแบบทดสอบได้ (${err.message})</p><button class="btn ghost" onclick="backToMenu()">กลับไปที่เมนู</button></div>`;
-                    if (window.show) window.show('final-quiz');
-                }
+                if (!stage) return;
+                const isEn = window.currentLang === 'en';
+                stage.innerHTML = `<div class="quiz-card"><h3 style="color:#f87171">Error loading quiz</h3><p>${escapeHtml(
+                    isEn ? 'Could not load the quiz data' : 'ไม่สามารถโหลดข้อมูลแบบทดสอบได้'
+                )} (${escapeHtml(err.message)})</p>
+                    <button type="button" class="btn primary" data-quiz-action="retry">${isEn ? 'Try again' : 'ลองอีกครั้ง'}</button></div>`;
+                stage.querySelector('[data-quiz-action="retry"]').addEventListener('click', () => {
+                    window.startTopicQuiz(topic);
+                });
+                const quizSection = document.getElementById('final-quiz');
+                if (quizSection) quizSection.style.display = 'block';
             });
     };
 
@@ -493,26 +472,12 @@
 
         // Show quiz section
         const quizSection = document.getElementById('final-quiz');
-        if (window.show) {
-            window.show('final-quiz');
-        } else if (quizSection) {
+        if (quizSection) {
             quizSection.style.display = 'block';
+            quizSection.classList.add('is-visible');
         }
 
         setTimeout(render, RENDER_DELAY);
         setTimeout(scrollToQuiz, SCROLL_DELAY);
     }
-
-    // Auto-scroll to top on page load
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            const quizSection = document.getElementById('final-quiz');
-            if (quizSection && typeof quizSection.scrollIntoView === 'function') {
-                quizSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                });
-            }
-        }, 100);
-    });
 })();

@@ -1,40 +1,72 @@
-// Strip tracking parameters from URL
-(async function () {
+/* global gsap, ScrollTrigger */
+
+// Safe localStorage access (can throw in private mode or with blocked site data)
+const storage = {
+    get(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch {
+            return null;
+        }
+    },
+    set(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch {
+            /* storage unavailable, ignore */
+        }
+    },
+};
+
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const isLessonPage = window.location.pathname.includes('/lessons/');
+const basePath = isLessonPage ? '../' : '';
+
+// Strip tracking parameters from the URL
+const TRACKING_PARAMS = [
+    ...['source', 'medium', 'term', 'campaign', 'content', 'name', 'cid', 'reader', 'viz_id'].map(
+        (s) => `utm_${s}`
+    ),
+    'utm_pubreferrer',
+    'utm_swu',
+    'ICID',
+    'icid',
+    '_hsenc',
+    '_hsmi',
+    'mkt_tok',
+    'mc_cid',
+    'mc_eid',
+    ...['source', 'mchannel', 'campaign', 'linkname', 'fee'].map((s) => `ns_${s}`),
+    'sr_share',
+    'vero_conv',
+    'vero_id',
+    'fbclid',
+    'igshid',
+    'srcid',
+    'gclid',
+    'ocid',
+    'ncid',
+    'nr_email_referer',
+    'ref',
+    'spm',
+];
+
+function stripTrackingParams() {
     try {
-        if (typeof window === 'undefined' || typeof URL === 'undefined') return;
         const url = new URL(window.location.href);
-
-        // Load trackers from JSON - Handle path relative to root or subdirectories
-        const pathPrefix = window.location.pathname.includes('/lessons/') ? '../' : '';
-        const response = await fetch(`${pathPrefix}data/trackers.json`);
-        const TRACKERS = await response.json();
-
-        // Build list of all tracking params
-        const paramsToStrip = [];
-        for (const [prefix, suffixes] of Object.entries(TRACKERS)) {
-            for (const suffix of suffixes) {
-                // _standalone key means no prefix (standalone params like fbclid, gclid)
-                paramsToStrip.push(prefix === '_standalone' ? suffix : prefix + suffix);
-            }
-        }
-
-        let changed = false;
-        for (const p of paramsToStrip) {
-            if (url.searchParams.has(p)) {
-                url.searchParams.delete(p);
-                changed = true;
-            }
-        }
-        if (changed) {
-            const newRelative = url.pathname + (url.search || '') + (url.hash || '');
-            window.history.replaceState(null, '', newRelative);
-        }
+        const present = TRACKING_PARAMS.filter((p) => url.searchParams.has(p));
+        if (present.length === 0) return;
+        present.forEach((p) => url.searchParams.delete(p));
+        window.history.replaceState(null, '', url.pathname + url.search + url.hash);
     } catch {
         /* URL parsing failed, ignore */
     }
-})();
+}
 
 document.addEventListener('DOMContentLoaded', function () {
+    stripTrackingParams();
+
     const initFunctions = [
         ['Navigation', initNavigation],
         ['Animations', initAnimations],
@@ -42,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ['Particles', createParticles],
         ['HeroVideo', initHeroVideo],
         ['ButtonBindings', initButtonBindings],
+        ['Language', initLanguage],
     ];
 
     initFunctions.forEach(([name, fn]) => {
@@ -51,102 +84,83 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error(`Init ${name} error:`, error);
         }
     });
-
-    initLanguage(); // Add this call
 });
 
-// Initialize button event bindings (replacing inline onclick handlers)
+function scrollToId(id) {
+    const target = document.querySelector(id);
+    if (!target) return;
+    target.scrollIntoView({
+        behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+        block: 'start',
+    });
+}
+
 function initButtonBindings() {
-    // Hero start button
     const heroStartBtn = document.getElementById('hero-start-btn');
     if (heroStartBtn) {
         heroStartBtn.addEventListener('click', () => {
-            if (typeof window.goToMenu === 'function') {
-                window.goToMenu();
-            }
-        });
-    }
-
-    // Lesson navigation buttons
-    const lessonBackBtn = document.getElementById('lesson-back');
-    if (lessonBackBtn) {
-        lessonBackBtn.addEventListener('click', () => {
-            if (typeof window.prevPage === 'function') {
-                window.prevPage();
-            }
-        });
-    }
-
-    const lessonMenuBtn = document.getElementById('lesson-menu');
-    if (lessonMenuBtn) {
-        lessonMenuBtn.addEventListener('click', () => {
-            if (typeof window.backToMenu === 'function') {
-                window.backToMenu();
-            }
-        });
-    }
-
-    const lessonNextBtn = document.getElementById('lesson-next');
-    if (lessonNextBtn) {
-        lessonNextBtn.addEventListener('click', () => {
-            if (typeof window.nextPage === 'function') {
-                window.nextPage();
-            }
+            scrollToId('#menu');
+            history.pushState(null, '', '#menu');
         });
     }
 }
 
 // Language handling
-window.currentLang = localStorage.getItem('site_lang') || 'th';
+window.currentLang = storage.get('site_lang') || 'th';
 let locales = {};
 
-async function initLanguage() {
-    try {
-        // Determine path to data/locales.json based on current page depth
-        const path = window.location.pathname.includes('/lessons/')
-            ? '../data/locales.json'
-            : 'data/locales.json';
-        const response = await fetch(path);
-        locales = await response.json();
+// Translate a key for the current language, falling back to Thai, then to the key itself
+window.t = function (key, vars) {
+    const text = locales[window.currentLang]?.[key] ?? locales.th?.[key] ?? key;
+    if (!vars) return text;
+    return text.replace(/\{(\w+)\}/g, (_, name) => (name in vars ? vars[name] : `{${name}}`));
+};
 
-        const toggleBtn = document.getElementById('lang-toggle');
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => {
-                const newLang = window.currentLang === 'th' ? 'en' : 'th';
-                setLanguage(newLang);
-            });
-        }
-
-        // Apply initial language
-        setLanguage(window.currentLang);
-    } catch (e) {
-        console.error('Failed to load locales', e);
+function initLanguage() {
+    // Bind the toggle first so it still flips the language even if locales fail to load
+    const toggleBtn = document.getElementById('lang-toggle');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            setLanguage(window.currentLang === 'th' ? 'en' : 'th');
+        });
     }
+
+    fetch(`${basePath}data/locales.json`)
+        .then((response) => {
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response.json();
+        })
+        .then((data) => {
+            locales = data;
+        })
+        .catch((e) => {
+            // Page keeps its built-in Thai text; lesson content does not depend on locales
+            console.error('Failed to load locales', e);
+        })
+        .finally(() => setLanguage(window.currentLang));
 }
 
 function setLanguage(lang) {
     window.currentLang = lang;
-    localStorage.setItem('site_lang', lang);
+    storage.set('site_lang', lang);
     document.documentElement.lang = lang;
 
-    // Update toggle button text
     const langSpan = document.getElementById('current-lang');
     if (langSpan) langSpan.textContent = lang.toUpperCase();
 
-    // Update static content
-    document.querySelectorAll('[data-i18n]').forEach((el) => {
-        const key = el.getAttribute('data-i18n');
-        if (locales[lang] && locales[lang][key]) {
-            el.textContent = locales[lang][key];
-        }
-    });
-
-    // Notify other scripts if needed (e.g. re-render lesson)
-    if (typeof window.renderLesson === 'function') {
-        window.renderLesson();
+    const toggleBtn = document.getElementById('lang-toggle');
+    if (toggleBtn) {
+        toggleBtn.setAttribute(
+            'aria-label',
+            lang === 'th' ? 'Switch to English' : 'เปลี่ยนเป็นภาษาไทย'
+        );
     }
 
-    // Dispatch a custom event for other components
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const text = locales[lang]?.[el.getAttribute('data-i18n')];
+        if (text) el.textContent = text;
+    });
+
     window.dispatchEvent(new CustomEvent('languageChanged', { detail: lang }));
 }
 
@@ -155,181 +169,102 @@ function initNavigation() {
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    if (!hamburger || !navMenu) {
-        console.warn('Navigation elements not found');
-        return;
-    }
+    if (!hamburger || !navMenu) return;
 
-    // Toggle mobile menu
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close menu when link is clicked
-    navLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-
-    // Smooth, reliable scrolling for hash navigation links; allow normal links
-    navLinks.forEach((link) => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (!href || !href.startsWith('#')) {
-                // Non-hash link (e.g., separate page) → allow default navigation
-                return;
-            }
-            e.preventDefault();
-
-            const targetSection = document.querySelector(href);
-
-            // Toggle visibility first (so layout is correct before scrolling)
-            if (typeof window.show === 'function') {
-                if (href === '#home') window.show('home');
-                else if (href === '#menu') window.show('menu');
-                // Leave other sections (e.g., #about) as-is
-            }
-
-            // Close mobile menu immediately
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-
-            // Scroll after layout updates
-            if (targetSection && typeof targetSection.scrollIntoView === 'function') {
-                requestAnimationFrame(() => {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start',
-                    });
-                });
-            }
-
-            // Update hash for accessibility/history without triggering default jump
-            if (history && history.pushState) {
-                history.pushState(null, '', href);
-            } else if (typeof location !== 'undefined') {
-                location.hash = href;
-            }
-        });
-    });
-}
-
-// Initialize animations
-function initAnimations() {
-    // Check if GSAP is loaded
-    /* global gsap, ScrollTrigger */
-    if (typeof gsap === 'undefined') {
-        console.warn('GSAP is not loaded, using fallback animations');
-        initFallbackAnimations();
-        return;
-    }
-
-    try {
-        // Animate hero title only (cta-button stays visible, no subtitle/description in HTML)
-        gsap.from('.hero-title', {
-            duration: 1,
-            y: 50,
-            opacity: 0,
-            ease: 'power3.out',
-        });
-
-        // Register ScrollTrigger plugin if available
-        if (gsap.registerPlugin && typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Animate menu cards on scroll
-            gsap.from('.menu-card', {
-                scrollTrigger: {
-                    trigger: '.menu-grid',
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse',
-                },
-                duration: 0.8,
-                y: 40,
-                opacity: 0,
-                stagger: 0.15,
-                ease: 'power3.out',
-            });
-        } else {
-            console.warn('ScrollTrigger plugin not available');
-        }
-    } catch (error) {
-        console.error('GSAP animation error:', error);
-        initFallbackAnimations();
-    }
-}
-
-// Fallback animations for when GSAP is not available
-function initFallbackAnimations() {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        heroTitle.style.opacity = '0';
-        heroTitle.style.transform = 'translateY(30px)';
-
-        setTimeout(() => {
-            heroTitle.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            heroTitle.style.opacity = '1';
-            heroTitle.style.transform = 'translateY(0)';
-        }, 200);
-    }
-}
-
-// Remove legacy body layers and modal code (replaced by lesson flow)
-
-// Scroll effects
-function initScrollEffects() {
-    // Fade in sections on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+    const setMenuOpen = (open) => {
+        hamburger.classList.toggle('active', open);
+        navMenu.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', String(open));
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                // Unobserve after animation to save resources
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+    hamburger.addEventListener('click', () => setMenuOpen(!navMenu.classList.contains('active')));
 
-    // Observe all sections except hero (GSAP handles hero animations)
-    document.querySelectorAll('section:not(.hero)').forEach((section) => {
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            setMenuOpen(false);
+            hamburger.focus();
+        }
+    });
+
+    navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            setMenuOpen(false);
+            const href = link.getAttribute('href');
+            // Only hash links are handled here; other links navigate normally
+            if (!href || !href.startsWith('#')) return;
+            e.preventDefault();
+            scrollToId(href);
+            history.pushState(null, '', href);
+        });
+    });
+}
+
+function initAnimations() {
+    if (typeof gsap === 'undefined' || prefersReducedMotion()) return;
+
+    gsap.from('.hero-title', { duration: 1, y: 50, opacity: 0, ease: 'power3.out' });
+
+    if (typeof ScrollTrigger !== 'undefined' && document.querySelector('.menu-grid')) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('.menu-card', {
+            scrollTrigger: {
+                trigger: '.menu-grid',
+                start: 'top 80%',
+                toggleActions: 'play none none none',
+            },
+            duration: 0.8,
+            y: 40,
+            opacity: 0,
+            stagger: 0.15,
+            ease: 'power3.out',
+        });
+    }
+}
+
+function initScrollEffects() {
+    const sections = document.querySelectorAll('section:not(.hero)');
+
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) {
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    sections.forEach((section) => {
         section.classList.add('fade-in-section');
         observer.observe(section);
     });
 
-    // Header background on scroll - cache header element
     const header = document.querySelector('.header');
     if (!header) return;
 
-    const handleScroll = throttle(() => {
-        const isScrolled = window.scrollY > 100;
-        header.style.background = isScrolled ? 'rgba(5, 10, 25, 0.9)' : 'rgba(5, 10, 25, 0.7)';
-        header.style.boxShadow = isScrolled
-            ? '0 10px 30px rgba(0,0,0,0.35)'
-            : '0 10px 30px rgba(0,0,0,0.25)';
-    }, 100);
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener(
+        'scroll',
+        throttle(() => header.classList.toggle('scrolled', window.scrollY > 100), 100),
+        { passive: true }
+    );
 }
 
-// Create floating particles
 function createParticles() {
     const hero = document.querySelector('.hero');
-    if (!hero) return;
+    if (!hero || prefersReducedMotion()) return;
 
     const particlesContainer = document.createElement('div');
     particlesContainer.className = 'particles';
+    particlesContainer.setAttribute('aria-hidden', 'true');
 
-    // Use DocumentFragment for better performance
     const fragment = document.createDocumentFragment();
-    const PARTICLE_COUNT = 50;
+    const PARTICLE_COUNT = 24;
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
         const particle = document.createElement('div');
@@ -346,39 +281,36 @@ function createParticles() {
     hero.appendChild(particlesContainer);
 }
 
-// Initialize hero video with fade-to-black loop
+// Hero video: fades to black at the end and restarts. Stays on the poster image when the
+// user prefers reduced motion or has data saver on.
 function initHeroVideo() {
     const video = document.getElementById('hero-video');
     const fade = document.getElementById('hero-video-fade');
     const fallback = document.querySelector('.fallback-visual');
     if (!video || !fade) return;
 
-    // Try to play muted inline
+    const wrap = video.closest('.hero-video-wrap');
+
+    if (prefersReducedMotion() || navigator.connection?.saveData) {
+        video.preload = 'none';
+        return;
+    }
+
     const startPlayback = () => {
         const p = video.play();
         if (p && typeof p.catch === 'function') {
-            p.catch((err) => {
-                console.warn('Autoplay failed, will show controls fallback', err);
-                video.setAttribute('controls', 'controls');
-            });
+            // Autoplay blocked: the poster stays visible
+            p.catch(() => {});
         }
     };
 
-    // If metadata ready, attempt autoplay
     if (video.readyState >= 1) startPlayback();
     else video.addEventListener('loadedmetadata', startPlayback, { once: true });
 
-    // Fade to black at end, then restart
     video.addEventListener('ended', () => {
         fade.classList.add('show');
-        // Small delay to ensure fade is visible
         setTimeout(() => {
-            try {
-                video.currentTime = 0;
-            } catch {
-                /* video reset failed, ignore */
-            }
-            // After resetting, wait a moment then fade out and play again
+            video.currentTime = 0;
             setTimeout(() => {
                 fade.classList.remove('show');
                 startPlayback();
@@ -386,66 +318,35 @@ function initHeroVideo() {
         }, 150);
     });
 
-    // On error, reveal fallback visuals and hide video wrapper
+    // Pause when scrolled out of view to save CPU and battery
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(([entry]) => {
+            if (!entry.isIntersecting) video.pause();
+            else if (video.paused && !video.ended) startPlayback();
+        }).observe(video);
+    }
+
     const showFallback = () => {
         if (fallback) fallback.style.display = 'block';
-        const wrap = document.querySelector('.hero-video-wrap');
         if (wrap) wrap.style.display = 'none';
     };
     video.addEventListener('error', showFallback);
     video.addEventListener('stalled', () => {
-        // If stalled at the beginning, fallback quickly
         if (video.currentTime === 0) showFallback();
     });
 }
 
-// Error handling and user feedback
 function showErrorMessage(message) {
-    // Remove existing toasts to prevent stacking
     document.querySelectorAll('.error-toast').forEach((t) => t.remove());
 
     const toast = document.createElement('div');
     toast.className = 'error-toast';
-    toast.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #f44336;
-        color: white;
-        padding: 15px 20px;
-        border-radius: 8px;
-        z-index: 10000;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        animation: slideInRight 0.3s ease-out;
-        cursor: pointer;
-    `;
     toast.textContent = message;
     toast.setAttribute('role', 'alert');
-
-    // Allow click to dismiss
     toast.addEventListener('click', () => toast.remove());
     document.body.appendChild(toast);
 
-    setTimeout(() => {
-        if (toast.parentNode) {
-            toast.style.animation = 'slideInRight 0.3s ease-out reverse';
-            setTimeout(() => toast.remove(), 300);
-        }
-    }, 5000);
-}
-
-// Utility functions
-// eslint-disable-next-line no-unused-vars -- utility function for future use
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+    setTimeout(() => toast.remove(), 5000);
 }
 
 function throttle(func, limit) {
@@ -461,5 +362,7 @@ function throttle(func, limit) {
 
 window.addEventListener('error', (e) => {
     console.error('Application error:', e.error);
-    showErrorMessage('เกิดข้อผิดพลาดในระบบ');
+    // Ignore errors from third-party scripts and resource load failures
+    if (!e.filename || !e.filename.startsWith(window.location.origin)) return;
+    showErrorMessage(window.t ? window.t('error_generic') : 'Error');
 });

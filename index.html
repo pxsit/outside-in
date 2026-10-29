@@ -4,10 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#0b1020" />
+        <meta name="color-scheme" content="dark" />
 
         <meta
             name="description"
-            content="Outside In — เว็บไซต์สื่อการสอนแบบ Interactive เพื่อเรียนรู้ระบบต่างๆ ในร่างกายมนุษย์ พร้อมบทเรียนและแบบทดสอบ (TH/EN)"
+            content="Outside In — สื่อการสอนแบบ Interactive เรียนรู้ระบบไหลเวียนเลือด ระบบหายใจ ระบบน้ำเหลือง และระบบประสาท พร้อมบทเรียนและแบบทดสอบ (ไทย/English)"
         />
         <link rel="canonical" href="https://outside-in.blog/" />
 
@@ -19,55 +20,56 @@
             content="Interactive learning for human body systems — lessons and quizzes (TH/EN)."
         />
         <meta property="og:url" content="https://outside-in.blog/" />
+        <meta property="og:locale" content="th_TH" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:image" content="https://outside-in.blog/assets/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Outside In — Body System" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://outside-in.blog/assets/og-image.jpg" />
         <meta name="twitter:title" content="Outside In - Body System" />
         <meta
             name="twitter:description"
             content="Interactive learning for human body systems — lessons and quizzes (TH/EN)."
         />
 
-        <title>Outside In - Body System</title>
+        <title>Outside In - สื่อการสอนระบบร่างกายมนุษย์</title>
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/animations.css" />
+        <link rel="icon" href="favicon.ico" sizes="any" />
+        <link rel="preload" as="image" href="assets/video-poster.webp" fetchpriority="high" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
         <link
             href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap"
             rel="stylesheet"
         />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        />
     </head>
     <body>
+        <a class="skip-link" href="#menu" data-i18n="skip_link">ข้ามไปยังเมนู</a>
         <!-- Header -->
         <header class="header" role="banner">
-            <nav class="navbar" aria-label="Main navigation">
+            <nav class="navbar" aria-label="เมนูหลัก">
                 <div class="nav-brand">
                     <h2>Outside In</h2>
                     <span>Body System</span>
                 </div>
-                <ul class="nav-menu" role="menubar">
-                    <li role="none">
-                        <a href="#home" class="nav-link" role="menuitem" data-i18n="nav_home"
-                            >Home</a
-                        >
+                <ul class="nav-menu" id="nav-menu">
+                    <li>
+                        <a href="#home" class="nav-link" data-i18n="nav_home">Home</a>
                     </li>
-                    <li role="none">
-                        <a href="#menu" class="nav-link" role="menuitem" data-i18n="nav_menu"
-                            >Menu</a
-                        >
+                    <li>
+                        <a href="#menu" class="nav-link" data-i18n="nav_menu">Menu</a>
                     </li>
-                    <li role="none">
-                        <a href="#about" class="nav-link" role="menuitem" data-i18n="nav_about"
-                            >About</a
-                        >
+                    <li>
+                        <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
                     </li>
-                    <li role="none">
+                    <li>
                         <a
                             href="https://forms.gle/VsbaUmrFEPGE4XKC6"
                             class="nav-link"
-                            role="menuitem"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Open feedback form"
@@ -75,18 +77,20 @@
                         >
                     </li>
                     <!-- Language Toggle -->
-                    <li role="none">
+                    <li>
                         <button
+                            type="button"
                             id="lang-toggle"
                             class="nav-link lang-toggle-btn"
                             aria-label="Toggle Language"
                         >
-                            <i class="fas fa-globe"></i>
+                            <i class="icon icon-globe" aria-hidden="true"></i>
                             <span id="current-lang">TH</span>
                         </button>
                     </li>
                 </ul>
                 <button
+                    type="button"
                     class="hamburger"
                     aria-label="Toggle navigation menu"
                     aria-expanded="false"
@@ -100,7 +104,7 @@
         </header>
 
         <!-- Hero Section -->
-        <main>
+        <main id="main">
             <section id="home" class="hero" aria-labelledby="hero-title">
                 <div class="hero-content">
                     <h1 id="hero-title" class="hero-title mega">Outside In</h1>
@@ -109,7 +113,7 @@
                         id="hero-start-btn"
                         aria-label="Start exploring body systems"
                     >
-                        <i class="fas fa-play" aria-hidden="true"></i>
+                        <i class="icon icon-play" aria-hidden="true"></i>
                         Start
                     </button>
                 </div>
@@ -121,11 +125,13 @@
                             muted
                             preload="metadata"
                             playsinline
-                            crossorigin="anonymous"
-                            aria-label="Decorative intro video"
+                            poster="assets/video-poster.webp"
+                            width="1280"
+                            height="720"
+                            aria-hidden="true"
+                            tabindex="-1"
                         >
                             <source src="assets/video.mp4" type="video/mp4" />
-                            Your browser does not support the video tag.
                         </video>
                         <div id="hero-video-fade" class="hero-video-fade" aria-hidden="true"></div>
                     </div>
@@ -150,49 +156,29 @@
                         เลือกเนื้อหาที่ต้องการเรียนรู้
                     </p>
 
-                    <div class="menu-grid" role="list">
-                        <a
-                            class="menu-card"
-                            href="lessons/circulatory.html"
-                            role="listitem"
-                            aria-label="Open Circulatory System full page"
-                        >
+                    <div class="menu-grid">
+                        <a class="menu-card" href="lessons/circulatory.html">
                             <div class="menu-bg circulatory" aria-hidden="true"></div>
                             <div class="menu-text">
                                 <h3 data-i18n="sys_circulatory">Circulatory System</h3>
                                 <span data-i18n="sys_circulatory_desc">ระบบหมุนเวียนเลือด</span>
                             </div>
                         </a>
-                        <a
-                            class="menu-card"
-                            href="lessons/respiratory.html"
-                            role="listitem"
-                            aria-label="Open Respiratory System full page"
-                        >
+                        <a class="menu-card" href="lessons/respiratory.html">
                             <div class="menu-bg respiratory" aria-hidden="true"></div>
                             <div class="menu-text">
                                 <h3 data-i18n="sys_respiratory">Respiratory System</h3>
                                 <span data-i18n="sys_respiratory_desc">ระบบหายใจ</span>
                             </div>
                         </a>
-                        <a
-                            class="menu-card"
-                            href="lessons/lymphatic.html"
-                            role="listitem"
-                            aria-label="Open Lymphatics System full page"
-                        >
+                        <a class="menu-card" href="lessons/lymphatic.html">
                             <div class="menu-bg lymphatic" aria-hidden="true"></div>
                             <div class="menu-text">
                                 <h3 data-i18n="sys_lymphatic">Lymphatics System</h3>
                                 <span data-i18n="sys_lymphatic_desc">ระบบน้ำเหลือง</span>
                             </div>
                         </a>
-                        <a
-                            class="menu-card"
-                            href="lessons/nervous.html"
-                            role="listitem"
-                            aria-label="Open Nervous System full page"
-                        >
+                        <a class="menu-card" href="lessons/nervous.html">
                             <div class="menu-bg nervous" aria-hidden="true"></div>
                             <div class="menu-text">
                                 <h3 data-i18n="sys_nervous">Nervous System</h3>
@@ -200,50 +186,6 @@
                             </div>
                         </a>
                     </div>
-                </div>
-            </section>
-
-            <!-- Lesson Section (dynamic pages) -->
-            <section id="lesson" class="lesson-section" style="display: none">
-                <div class="lesson-bg" id="lesson-bg"></div>
-                <div class="lesson-container">
-                    <div class="lesson-header">
-                        <h2 id="lesson-title"></h2>
-                        <div class="lesson-progress">
-                            <span id="lesson-step"></span>
-                        </div>
-                    </div>
-                    <div id="lesson-content" class="lesson-content"></div>
-                    <div class="lesson-actions">
-                        <button id="lesson-back" class="btn ghost">
-                            <i class="fas fa-arrow-left"></i>
-                            <span data-i18n="lesson_back">Back</span>
-                        </button>
-                        <button id="lesson-menu" class="btn ghost">
-                            <i class="fas fa-bars"></i>
-                            <span data-i18n="lesson_menu">Menu</span>
-                        </button>
-                        <button id="lesson-next" class="btn primary">
-                            <span data-i18n="lesson_next">Next</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Final Quiz Section -->
-            <section
-                id="final-quiz"
-                class="quiz-section"
-                style="display: none"
-                aria-labelledby="quiz-title"
-            >
-                <div class="quiz-bg" aria-hidden="true"></div>
-                <div class="quiz-container">
-                    <h2 id="quiz-title" class="section-title center" data-i18n="quiz_title">
-                        Quiz
-                    </h2>
-                    <div id="quiz-stage" role="region" aria-live="polite"></div>
                 </div>
             </section>
         </main>
@@ -315,11 +257,31 @@
             </div>
         </section>
 
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/lessons.js"></script>
-        <script src="js/quiz-handler.js"></script>
+        <footer class="site-footer">
+            <div class="container">
+                <p>
+                    Outside In ·
+                    <span data-i18n="footer_school">โรงเรียนวิสุทธรังษี จังหวัดกาญจนบุรี</span> ·
+                    <a
+                        href="https://forms.gle/VsbaUmrFEPGE4XKC6"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-i18n="footer_feedback"
+                        >ให้ Feedback</a
+                    >
+                    ·
+                    <a
+                        href="https://github.com/pxsit/outside-in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >GitHub</a
+                    >
+                </p>
+            </div>
+        </footer>
+
+        <script src="js/vendor/gsap.min.js" defer></script>
+        <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+        <script src="js/main.js" defer></script>
     </body>
 </html>

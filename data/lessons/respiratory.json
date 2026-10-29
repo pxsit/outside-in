@@ -1,0 +1,78 @@
+{
+    "th": {
+        "name": "Respiratory System",
+        "bg": "bg-respiratory",
+        "pages": [
+            {
+                "title": "ภาพรวมและขั้นตอนการหายใจ",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">ระบบหายใจแลกเปลี่ยนแก๊ส O2 กับ CO2 ขั้นตอนหลัก 3 ขั้นตอน: (1) Ventilation (2) การแลกเปลี่ยนที่ถุงลม (External) (3) การลำเลียง/แลกเปลี่ยนที่เนื้อเยื่อ (Internal)</p>\n            </div>\n          "
+            },
+            {
+                "title": "กายวิภาคทางเดินหายใจ",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">โครงสร้างหลัก</div>\n                <ul class=\"list-dot muted\">\n                  <li>โพรงจมูก คอหอย กล่องเสียง</li>\n                  <li>หลอดลม หลอดลมแขนง และหลอดลมฝอย</li>\n                  <li>ถุงลมปอด (Alveoli) และเส้นเลือดฝอย</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">หน้าที่</div>\n                <p class=\"muted\">กรอง อุ่น ทำให้อากาศชื้น แลกเปลี่ยนแก๊สที่ผนังถุงลม-เส้นเลือดฝอย</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "การแลกเปลี่ยนแก๊สที่ปอด",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\"><div class=\"h3\">ถุงลมปอด (Alveoli)</div><p class=\"muted\">ผนังบางมาก มีเส้นเลือดฝอยล้อมรอบ ทำให้ O2 แพร่เข้าสู่เลือด และ CO2 แพร่ออกจากเลือดได้ดี</p></div>\n              <div class=\"panel\"><img loading=\"lazy\" decoding=\"async\" src=\"../assets/alveoli.webp\" alt=\"ภาพถุงลมในปอด\" style=\"width:100%; opacity:.6; border-radius:8px;\"></div>\n            </div>\n          "
+            },
+            {
+                "title": "กลไกการหายใจ: ความยืดหยุ่นและสารลดแรงตึงผิว",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>Compliance</strong> ความยืดหยุ่นของปอดและผนังทรวงอก</li>\n                <li><strong>Surfactant</strong> ลดแรงตึงผิวในถุงลม ช่วยป้องกันถุงลมแฟบ</li>\n                <li>แรงดันลบในช่องเยื่อหุ้มปอดช่วยให้ปอดขยายตัว</li>\n              </ul>\n            </div>\n          "
+            },
+            {
+                "title": "ตารางเปรียบเทียบ ระหว่างหายใจเข้า-ออก",
+                "html": "\n            <div class=\"panel\" style=\"overflow-x:auto;\">\n              <table style=\"width:100%; border-collapse:collapse; color:#e6e6f0;\">\n                <thead><tr style=\"background:rgba(255,255,255,0.06)\"><th style=\"padding:8px; border:1px solid rgba(255,255,255,0.1)\">กลไก</th><th style=\"padding:8px; border:1px solid rgba(255,255,255,0.1)\">หายใจเข้า (Inhalation)</th><th style=\"padding:8px; border:1px solid rgba(255,255,255,0.1)\">หายใจออก (Exhalation)</th></tr></thead>\n                <tbody>\n                  <tr><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">กระบังลม</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">หดตัวและเลื่อนต่ำลง</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">คลายตัวและยกสูงขึ้น</td></tr>\n                  <tr><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">กระดูกซี่โครง</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">ยกตัวสูงขึ้น</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">ลดตัวต่ำลง</td></tr>\n                  <tr><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">ปริมาตรในช่องอก</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">เพิ่มขึ้น</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">ลดลง</td></tr>\n                  <tr><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">ความดันในช่องอก</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">ลดลง (ต่ำกว่าบรรยากาศ)</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">เพิ่มขึ้น (สูงกว่าบรรยากาศ)</td></tr>\n                </tbody>\n              </table>\n            </div>\n          "
+            },
+            {
+                "title": "การควบคุมการหายใจ",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">ก้านสมองควบคุมจังหวะหายใจ โดยระดับ CO2 เป็นตัวกระตุ้นหลัก</p>\n              <ul class=\"list-dot muted\" style=\"margin-top:1rem;\">\n                <li><strong>CO2 สูง:</strong> หายใจเร็ว/ลึกขึ้นเพื่อขับ CO2</li>\n                <li><strong>CO2 ต่ำ:</strong> หายใจช้าลง</li>\n              </ul>\n            </div>\n          "
+            },
+            {
+                "title": "การขนส่งแก๊สในเลือด",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">ออกซิเจน</div>\n                <p class=\"muted\">ส่วนใหญ่จับกับฮีโมโกลบิน (Hb) ที่เม็ดเลือดแดง</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">คาร์บอนไดออกไซด์</div>\n                <p class=\"muted\">ส่วนใหญ่ขนส่งเป็นไบคาร์บอเนต (HCO3-) ในพลาสมา ส่วนหนึ่งจับกับ Hb</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "โรคระบบหายใจที่พบบ่อย",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>หืด (Asthma):</strong> หลอดลมหดเกร็งและอักเสบ หายใจลำบาก</li>\n                <li><strong>ปอดบวม (Pneumonia):</strong> การอักเสบติดเชื้อของถุงลม</li>\n                <li><strong>COPD:</strong> ถุงลมเสียหายเรื้อรัง การแลกเปลี่ยนแก๊สลดลง</li>\n              </ul>\n            </div>\n          "
+            }
+        ]
+    },
+    "en": {
+        "name": "Respiratory System",
+        "bg": "bg-respiratory",
+        "pages": [
+            {
+                "title": "Overview and Process",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">The respiratory system exchanges O2 and CO2. 3 Main steps: (1) Ventilation (2) Alveolar Exchange (External) (3) Tissue Exchange (Internal)</p>\n            </div>\n          "
+            },
+            {
+                "title": "Anatomy",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Main Structures</div>\n                <ul class=\"list-dot muted\">\n                  <li>Nasal cavity, Pharynx, Larynx</li>\n                  <li>Trachea, Bronchi, Bronchioles</li>\n                  <li>Alveoli and Capillaries</li>\n                </ul>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Functions</div>\n                <p class=\"muted\">Filter, Warm, Moisten air; Exchange gas at alveoli-capillary interface.</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Gas Exchange at Lungs",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\"><div class=\"h3\">Alveoli</div><p class=\"muted\">Very thin walls surrounded by capillaries, allowing efficient diffusion of O2 in and CO2 out.</p></div>\n              <div class=\"panel\"><img loading=\"lazy\" decoding=\"async\" src=\"../assets/alveoli.webp\" alt=\"Diagram of alveoli in the lungs\" style=\"width:100%; opacity:.6; border-radius:8px;\"></div>\n            </div>\n          "
+            },
+            {
+                "title": "Mechanics of Breathing",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>Compliance:</strong> Elasticity of lungs/chest wall</li>\n                <li><strong>Surfactant:</strong> Reduces surface tension, prevents alveolar collapse</li>\n                <li>Negative pressure in pleural cavity helps lungs expand</li>\n              </ul>\n            </div>\n          "
+            },
+            {
+                "title": "Comparison: Inhalation vs Exhalation",
+                "html": "\n            <div class=\"panel\" style=\"overflow-x:auto;\">\n              <table style=\"width:100%; border-collapse:collapse; color:#e6e6f0;\">\n                <thead><tr style=\"background:rgba(255,255,255,0.06)\"><th style=\"padding:8px; border:1px solid rgba(255,255,255,0.1)\">Mechanism</th><th style=\"padding:8px; border:1px solid rgba(255,255,255,0.1)\">Inhalation</th><th style=\"padding:8px; border=1px solid rgba(255,255,255,0.1)\">Exhalation</th></tr></thead>\n                <tbody>\n                  <tr><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Diaphragm</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Contracts/Lowers</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Relaxes/Raises</td></tr>\n                  <tr><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Ribs</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Lift up</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Lower down</td></tr>\n                  <tr><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Chest Volume</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Increases</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Decreases</td></tr>\n                  <tr><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Pressure</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Decreases (Negative)</td><td style=\"padding:6px; border:1px solid rgba(255,255,255,0.08)\">Increases (Positive)</td></tr>\n                </tbody>\n              </table>\n            </div>\n          "
+            },
+            {
+                "title": "Control of Breathing",
+                "html": "\n            <div class=\"panel\">\n              <p class=\"muted\">Brainstem controls rhythm. CO2 level is the main trigger.</p>\n              <ul class=\"list-dot muted\" style=\"margin-top:1rem;\">\n                <li><strong>High CO2:</strong> Faster/Deeper breathing to expel CO2</li>\n                <li><strong>Low CO2:</strong> Slower breathing</li>\n              </ul>\n            </div>\n          "
+            },
+            {
+                "title": "Gas Transport",
+                "html": "\n            <div class=\"grid-2\">\n              <div class=\"panel\">\n                <div class=\"h3\">Oxygen</div>\n                <p class=\"muted\">Mostly bound to Hemoglobin (Hb) in RBCs.</p>\n              </div>\n              <div class=\"panel\">\n                <div class=\"h3\">Carbon Dioxide</div>\n                <p class=\"muted\">Mostly as Bicarbonate (HCO3-) in plasma, partially bound to Hb.</p>\n              </div>\n            </div>\n          "
+            },
+            {
+                "title": "Common Respiratory Diseases",
+                "html": "\n            <div class=\"panel\">\n              <ul class=\"list-dot muted\">\n                <li><strong>Asthma:</strong> Airway constriction/inflammation, breathing difficulty</li>\n                <li><strong>Pneumonia:</strong> Infection/inflammation of alveoli</li>\n                <li><strong>COPD:</strong> Chronic alveolar damage, reduced gas exchange</li>\n              </ul>\n            </div>\n          "
+            }
+        ]
+    }
+}
