@@ -54,10 +54,7 @@
 
         const sections = buildSections(topic, topicKey, isEn);
         const toc = topic.pages
-            .map(
-                (p, idx) =>
-                    `<li><a href="#sec-${idx + 1}">${idx + 1}. ${stripTags(p.title)}</a></li>`
-            )
+            .map((p, idx) => `<li><a href="#sec-${idx + 1}">${stripTags(p.title)}</a></li>`)
             .join('');
 
         container.innerHTML = `

@@ -291,9 +291,34 @@ function initHeroVideo() {
 
     const wrap = video.closest('.hero-video-wrap');
 
-    if (prefersReducedMotion() || navigator.connection?.saveData) {
+    // The video is muted and decorative, so it autoplays even with reduced motion (many
+    // Windows setups report it by default); a pause button lets users stop it. Only data
+    // saver keeps it on the poster.
+    if (navigator.connection?.saveData) {
         video.preload = 'none';
         return;
+    }
+
+    const pauseBtn = document.getElementById('hero-video-toggle');
+    let userPaused = false;
+    if (pauseBtn) {
+        pauseBtn.hidden = false;
+        pauseBtn.addEventListener('click', () => {
+            userPaused = !video.paused;
+            if (userPaused) video.pause();
+            else startPlayback();
+        });
+        const syncBtn = () => {
+            const playing = !video.paused;
+            pauseBtn.setAttribute('aria-pressed', String(!playing));
+            pauseBtn.setAttribute(
+                'aria-label',
+                playing ? 'Pause background video' : 'Play background video'
+            );
+            pauseBtn.firstElementChild.className = playing ? 'icon icon-pause' : 'icon icon-play';
+        };
+        video.addEventListener('play', syncBtn);
+        video.addEventListener('pause', syncBtn);
     }
 
     const startPlayback = () => {
@@ -322,7 +347,7 @@ function initHeroVideo() {
     if ('IntersectionObserver' in window) {
         new IntersectionObserver(([entry]) => {
             if (!entry.isIntersecting) video.pause();
-            else if (video.paused && !video.ended) startPlayback();
+            else if (video.paused && !video.ended && !userPaused) startPlayback();
         }).observe(video);
     }
 

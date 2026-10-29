@@ -1005,3 +1005,37 @@ section {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
+
+.icon-pause {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Crect x='6' y='4' width='4' height='16'/%3E%3Crect x='14' y='4' width='4' height='16'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Crect x='6' y='4' width='4' height='16'/%3E%3Crect x='14' y='4' width='4' height='16'/%3E%3C/svg%3E");
+}
+
+.hero-video-toggle {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(5, 10, 25, 0.6);
+    color: #fff;
+    cursor: pointer;
+}
+
+.hero-video-toggle:hover {
+    background: rgba(5, 10, 25, 0.85);
+}
+
+.hero-video-toggle:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.hero-video-toggle[hidden] {
+    display: none;
+}
